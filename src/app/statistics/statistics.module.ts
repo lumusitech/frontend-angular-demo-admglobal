@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { StatisticsRoutingModule } from './statistics-routing.module';
-import { StatisticsMenuComponent } from './pages/statistics-menu/statistics-menu.component';
+import { StatisticsMenuComponent } from './components/statistics-menu/statistics-menu.component';
+import { StatisticsDashboardComponent } from './pages/statistics-dashboard/statistics-dashboard.component';
 
 
 @NgModule({
   declarations: [
-    StatisticsMenuComponent
+    StatisticsMenuComponent,
+    StatisticsDashboardComponent
   ],
   imports: [
     CommonModule,

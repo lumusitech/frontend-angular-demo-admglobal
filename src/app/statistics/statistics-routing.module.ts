@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StatisticsMenuComponent } from './pages/statistics-menu/statistics-menu.component';
+
+import { StatisticsMenuComponent } from './components/statistics-menu/statistics-menu.component';
+import { StatisticsDashboardComponent } from './pages/statistics-dashboard/statistics-dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: StatisticsMenuComponent
+    component: StatisticsDashboardComponent,
+    children: [
+      {
+        path: '',
+        component: StatisticsMenuComponent
+      },
+      {
+        path: '**',
+        redirectTo: ''
+      }
+    ]
   }
 ];
 
