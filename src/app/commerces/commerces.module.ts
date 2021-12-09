@@ -5,6 +5,8 @@ import { CommerceRoutingModule } from './commerces-routing.module';
 import { CommerceComponent } from './pages/commerce/commerce.component';
 import { CommerceNewComponent } from './pages/commerce-new/commerce-new.component';
 import { CommercesListComponent } from './pages/commerces-list/commerces-list.component';
+import { CommercesDashboardComponent } from './pages/commerces-dashboard/commerces-dashboard.component';
+import { CommercesMenuComponent } from './components/commerces-menu/commerces-menu.component';
 
 
 
@@ -12,7 +14,9 @@ import { CommercesListComponent } from './pages/commerces-list/commerces-list.co
   declarations: [
     CommerceComponent,
     CommerceNewComponent,
-    CommercesListComponent
+    CommercesListComponent,
+    CommercesDashboardComponent,
+    CommercesMenuComponent
   ],
   imports: [
     CommonModule,
