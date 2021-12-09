@@ -6,10 +6,12 @@ import { UserComponent } from './pages/user/user.component';
 import { UserTasksListComponent } from './pages/user-tasks-list/user-tasks-list.component';
 import { NewUserTaskComponent } from './pages/new-user-task/new-user-task.component';
 import { UserTaskComponent } from './pages/user-task/user-task.component';
+import { UsersDashboardComponent } from './pages/users-dashboard/users-dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: UsersDashboardComponent,
     children: [
       { path: '', component: UsersListComponent },
       { path: 'tasks', component: UserTasksListComponent },

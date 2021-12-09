@@ -8,6 +8,8 @@ import { UsersListComponent } from './pages/users-list/users-list.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { UserTaskComponent } from './pages/user-task/user-task.component';
 import { UserTasksListComponent } from './pages/user-tasks-list/user-tasks-list.component';
+import { UsersDashboardComponent } from './pages/users-dashboard/users-dashboard.component';
+import { UsersMenuComponent } from './components/users-menu/users-menu.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { UserTasksListComponent } from './pages/user-tasks-list/user-tasks-list.
     UserTaskComponent,
     UserTaskComponent,
     UserTasksListComponent,
+    UsersDashboardComponent,
+    UsersMenuComponent,
   ],
   imports: [
     CommonModule,
