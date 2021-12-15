@@ -1,0 +1,27 @@
+.container {
+  padding: 50px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+tr:hover {
+  background: rgb(58, 58, 58);
+  cursor: pointer;
+}
+
+tr:active {
+  background: rgb(83, 83, 83);
+}
+
