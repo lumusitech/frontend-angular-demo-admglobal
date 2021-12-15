@@ -1,7 +1,7 @@
-<p>Main Dashboard component works!</p>
+<!-- <p>Main Dashboard component works!</p>
 <app-header></app-header>
-<app-navbar></app-navbar>
-<app-sidebar></app-sidebar>
+<app-navbar></app-navbar> -->
+<!-- <app-sidebar></app-sidebar>
 <hr />
 <br />
 <div class="container">
@@ -11,4 +11,82 @@
 </div>
 <br />
 <hr />
-<app-footer></app-footer>
+<app-footer></app-footer> -->
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="push">
+    <mat-toolbar>
+      <span>Menú</span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a routerLink="/main/sales" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>paid</mat-icon>
+        <span>Ventas</span>
+      </a>
+      <a routerLink="/main/cash-flow" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>point_of_sale</mat-icon>
+        <span>Flujo de caja</span>
+      </a>
+      <a routerLink="/main/customers" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>group</mat-icon>
+        <span>Clientes</span>
+      </a>
+      <a routerLink="/main/providers" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>factory</mat-icon>
+        <span>Proveedores</span>
+      </a>
+      <a routerLink="/main/statistics" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>leaderboard</mat-icon>
+        <span>Estadísticas</span>
+      </a>
+      <a routerLink="/main/reports" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>summarize</mat-icon>
+        <span>Reportes</span>
+      </a>
+      <a routerLink="/main/articles" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>volunteer_activism</mat-icon>
+        <span>Artículos</span>
+      </a>
+      <a routerLink="/main/operations" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>home_repair_service</mat-icon>
+        <span>Operaciones</span>
+      </a>
+      <a routerLink="/main/commerces" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>store</mat-icon>
+        <span>Comercios</span>
+      </a>
+      <a routerLink="/main/printers" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>print</mat-icon>
+        <span>Impresoras</span>
+      </a>
+      <a routerLink="/main/categories" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>category</mat-icon>
+        <span>Categorías</span>
+      </a>
+      <a routerLink="/main/users" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>badge</mat-icon>
+        <span>Usuarios</span>
+      </a>
+      <a routerLink="/main/cards" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>credit_card</mat-icon>
+        <span>Tarjetas</span>
+      </a>
+      <a routerLink="/main/discounts" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon>discount</mat-icon>
+        <span>Descuentos</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
