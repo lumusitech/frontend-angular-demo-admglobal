@@ -1,11 +1,16 @@
-.container {
-  border: solid 1px grey;
-  padding: 30px;
-  max-width: 30%;
-  margin: 10px;
-}
-
-.mat-sidenav-container {
+mat-sidenav-container {
   height: 100%;
 }
 
+mat-nav-list {
+  padding: 5px;
+
+  a {
+    display: flex;
+    justify-content: start;
+
+    span {
+      margin-left: 10px;
+    }
+  }
+}

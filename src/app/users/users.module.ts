@@ -11,6 +11,7 @@ import { UsersMenuComponent } from './components/users-menu/users-menu.component
 import { UsersRoutingModule } from './users-routing.module';
 import { UserTaskComponent } from './pages/user-task/user-task.component';
 import { UserTasksListComponent } from './pages/user-tasks-list/user-tasks-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserTasksListComponent } from './pages/user-tasks-list/user-tasks-list.
   imports: [
     CommonModule,
     MaterialModule,
-    UsersRoutingModule
+    ReactiveFormsModule,
+    UsersRoutingModule,
   ]
 })
 export class UsersModule { }

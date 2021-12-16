@@ -1,11 +1,102 @@
 <div class="container">
-  <p>new-user works!</p>
-  <button
-    mat-fab
-    color="primary"
-    aria-label="back to users"
-    routerLink="/main/users"
-  >
-    <mat-icon>arrow_back</mat-icon>
-  </button>
+  <div>
+    <button
+      mat-fab
+      color="primary"
+      aria-label="back to users"
+      routerLink="/main/users"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+
+  <form class="form-container" [formGroup]="myForm" (ngSubmit)="save()">
+    <mat-form-field appearance="outline">
+      <mat-label>Apellido/s del usuario</mat-label>
+      <input
+        matInput
+        placeholder="Apellidos"
+        autocomplete="off"
+        formControlName="name"
+      />
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-hint>Ejemplo: Figueroa</mat-hint>
+      <mat-error>{{ getErrorMessage("name") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre/s del usuario</mat-label>
+      <input
+        matInput
+        placeholder="Nombres"
+        autocomplete="off"
+        formControlName="lastname"
+      />
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-hint>Ejemplo: Figueroa</mat-hint>
+      <mat-error>{{ getErrorMessage("lastname") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="Email"
+        autocomplete="off"
+        formControlName="email"
+      />
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-hint>Ejemplo: usuario@gmail.com</mat-hint>
+      <mat-error>{{ getErrorMessage("email") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ingrese su password</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        placeholder="Password del usuario"
+        formControlName="pass"
+
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'ocultar password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error>{{ getErrorMessage("pass") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Repita su password</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        placeholder="Password del usuario"
+        formControlName="pass2"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'ocultar password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error>{{ getErrorMessage("pass2") }}</mat-error>
+    </mat-form-field>
+
+    <button
+      class="save-button"
+      mat-raised-button
+      color="primary"
+    >
+      Crear nuevo usuario
+    </button>
+  </form>
 </div>
