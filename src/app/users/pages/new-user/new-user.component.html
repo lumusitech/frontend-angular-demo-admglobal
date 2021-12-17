@@ -42,7 +42,7 @@
 
     <!-- input email -->
     <mat-form-field appearance="outline">
-      <mat-label>Enter your email</mat-label>
+      <mat-label>Ingrese su email</mat-label>
       <input
         matInput
         placeholder="Email"
@@ -52,6 +52,20 @@
       <mat-icon matSuffix>email</mat-icon>
       <mat-hint>Ejemplo: usuario@gmail.com</mat-hint>
       <mat-error>{{ getErrorMessage("email") }}</mat-error>
+    </mat-form-field>
+
+    <!-- input tel -->
+    <mat-form-field appearance="outline">
+      <mat-label>Ingrese su teléfono</mat-label>
+      <input
+        matInput
+        placeholder="Teléfono"
+        autocomplete="off"
+        formControlName="tel"
+      />
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-hint>Ejemplo: 1120459223</mat-hint>
+      <mat-error>{{ getErrorMessage("tel") }}</mat-error>
     </mat-form-field>
 
     <!-- input password1 -->

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../../models/user';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
@@ -12,15 +14,19 @@ export class NewUserComponent {
     name: [, [Validators.required, Validators.minLength(3)]],
     lastname: [, [Validators.required, Validators.minLength(3)]],
     email: [, [Validators.required, Validators.email]],
+    tel: [, [Validators.required]],
     pass: [, [Validators.required, Validators.minLength(8)]],
     pass2: [, [Validators.required, Validators.minLength(8)]],
-  })
+  });
+
+  newUser: any = {};
 
   hide: boolean = true;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private userService: UserService
   ) { }
 
   getErrorMessage(field: string) {
@@ -42,8 +48,9 @@ export class NewUserComponent {
       this.myForm.markAllAsTouched();
       return;
     }
-
-    console.log(this.myForm.value);
+    const { name, lastname, email, tel, pass } = this.myForm.value;
+    this.newUser = { name, lastname, email, tel, pass };
+    this.userService.save(this.newUser);
     this.router.navigate(['/main/users']);
   }
 

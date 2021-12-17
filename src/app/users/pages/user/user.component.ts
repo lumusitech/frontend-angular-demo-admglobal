@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { switchMap } from 'rxjs';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
-import { switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -15,17 +15,13 @@ export class UserComponent implements OnInit {
   constructor(
     private userService: UserService,
     private activatedRoute: ActivatedRoute
-  ) {
-
-    this.activatedRoute.params.
-      pipe(
-        switchMap(({ id }) => this.userService.getById(id)),
-        tap(console.log)
-      )
-      .subscribe({ next: user => this.user = user, error: e => this.user = null });
-  }
+  ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.
+      pipe(
+        switchMap(({ id }) => this.userService.getById(id)))
+      .subscribe(user => this.user = user);
   }
 
 }
