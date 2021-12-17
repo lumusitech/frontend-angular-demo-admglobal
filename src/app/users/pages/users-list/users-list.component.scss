@@ -16,12 +16,12 @@ th {
   width: 25%;
 }
 
-tr:hover {
+.mat-row:hover {
   background: darkgreen;
   cursor: pointer;
 }
 
-tr:active {
+.mat-row:active {
   background: green;
 }
 

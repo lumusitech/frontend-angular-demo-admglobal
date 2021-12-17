@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
@@ -19,7 +18,10 @@ export class NewUserComponent {
 
   hide: boolean = true;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+  ) { }
 
   getErrorMessage(field: string) {
     if (this.myForm.controls[field]?.hasError('required')

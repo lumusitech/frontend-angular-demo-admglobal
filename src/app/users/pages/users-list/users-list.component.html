@@ -15,7 +15,7 @@
     <input
       matInput
       (keyup)="applyFilter($event)"
-      placeholder="Ejemplo: Olivia"
+      placeholder="Ejemplo: Luciano"
       #input
     />
   </mat-form-field>
@@ -30,25 +30,14 @@
           mat-cell
           *matCellDef="let row"
         >
-          {{ row.id }}
-        </td>
-      </ng-container>
 
-      <!-- Progress Column -->
-      <ng-container matColumnDef="progress">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Progress</th>
-        <td
-          routerLink="/main/users/{{ row.id }}"
-          mat-cell
-          *matCellDef="let row"
-        >
-          {{ row.progress }}%
+          {{ row.id }}
         </td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
         <td
           routerLink="/main/users/{{ row.id }}"
           mat-cell
@@ -58,15 +47,39 @@
         </td>
       </ng-container>
 
-      <!-- Fruit Column -->
-      <ng-container matColumnDef="fruit">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fruit</th>
+      <!-- Lastname Column -->
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</th>
         <td
           routerLink="/main/users/{{ row.id }}"
           mat-cell
           *matCellDef="let row"
         >
-          {{ row.fruit }}
+          {{ row.lastname }}
+        </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td
+          routerLink="/main/users/{{ row.id }}"
+          mat-cell
+          *matCellDef="let row"
+        >
+          {{ row.email }}
+        </td>
+      </ng-container>
+
+      <!-- Tel Column -->
+      <ng-container matColumnDef="tel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Teléfono</th>
+        <td
+          routerLink="/main/users/{{ row.id }}"
+          mat-cell
+          *matCellDef="let row"
+        >
+          {{ row.tel }}
         </td>
       </ng-container>
 
@@ -76,7 +89,7 @@
       <!-- Row shown when there is no matching data. -->
       <tr class="mat-row" *matNoDataRow>
         <td class="mat-cell" colspan="4">
-          No data matching the filter "{{ input.value }}"
+          No existen coincidencias con su búsqueda: "{{ input.value }}"
         </td>
       </tr>
     </table>

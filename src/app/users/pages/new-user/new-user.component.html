@@ -1,4 +1,5 @@
 <div class="container">
+  <!-- back button -->
   <div>
     <button
       mat-fab
@@ -11,8 +12,9 @@
   </div>
 
   <form class="form-container" [formGroup]="myForm" (ngSubmit)="save()">
+    <!-- input name -->
     <mat-form-field appearance="outline">
-      <mat-label>Apellido/s del usuario</mat-label>
+      <mat-label>Nombre/s del usuario</mat-label>
       <input
         matInput
         placeholder="Apellidos"
@@ -24,8 +26,9 @@
       <mat-error>{{ getErrorMessage("name") }}</mat-error>
     </mat-form-field>
 
+    <!-- input lastname -->
     <mat-form-field appearance="outline">
-      <mat-label>Nombre/s del usuario</mat-label>
+      <mat-label>Apellido/s del usuario</mat-label>
       <input
         matInput
         placeholder="Nombres"
@@ -37,6 +40,7 @@
       <mat-error>{{ getErrorMessage("lastname") }}</mat-error>
     </mat-form-field>
 
+    <!-- input email -->
     <mat-form-field appearance="outline">
       <mat-label>Enter your email</mat-label>
       <input
@@ -50,6 +54,7 @@
       <mat-error>{{ getErrorMessage("email") }}</mat-error>
     </mat-form-field>
 
+    <!-- input password1 -->
     <mat-form-field appearance="outline">
       <mat-label>Ingrese su password</mat-label>
       <input
@@ -71,6 +76,7 @@
       <mat-error>{{ getErrorMessage("pass") }}</mat-error>
     </mat-form-field>
 
+    <!-- input password2 -->
     <mat-form-field appearance="outline">
       <mat-label>Repita su password</mat-label>
       <input
@@ -91,6 +97,7 @@
       <mat-error>{{ getErrorMessage("pass2") }}</mat-error>
     </mat-form-field>
 
+    <!-- save button -->
     <button
       class="save-button"
       mat-raised-button
