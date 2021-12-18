@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./users-list.component.scss']
 })
 export class UsersListComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'lastname', 'email', 'tel'];
+  displayedColumns: string[] = ['name', 'lastname', 'role','email', 'tel', 'operation'];
   dataSource: MatTableDataSource<User>;
 
   users_http: User[] = [];

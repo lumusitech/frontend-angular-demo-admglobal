@@ -30,7 +30,6 @@
           mat-cell
           *matCellDef="let row"
         >
-
           {{ row.id }}
         </td>
       </ng-container>
@@ -59,6 +58,18 @@
         </td>
       </ng-container>
 
+      <!-- Role Column -->
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Rol</th>
+        <td
+          routerLink="/main/users/{{ row.id }}"
+          mat-cell
+          *matCellDef="let row"
+        >
+          {{ row.role }}
+        </td>
+      </ng-container>
+
       <!-- Email Column -->
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
@@ -80,6 +91,29 @@
           *matCellDef="let row"
         >
           {{ row.tel }}
+        </td>
+      </ng-container>
+
+      <!-- Operation Column -->
+      <ng-container matColumnDef="operation">
+        <th mat-header-cell *matHeaderCellDef>Operación</th>
+        <td mat-cell *matCellDef="let row">
+          <div class="buttons-container">
+            <button
+            mat-mini-fab
+            color="edit"
+            routerLink="/main/users/{{ row.id }}"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+          mat-mini-fab
+          color="delete"
+          routerLink="/main/users"
+          >
+          <mat-icon>delete</mat-icon>
+          </button>
+          </div>
         </td>
       </ng-container>
 

@@ -5,4 +5,10 @@ export interface User {
   email: string;
   tel: string;
   pass: string;
+  role: Role;
+}
+
+export enum Role {
+  ADMIN = 'ADMIN',
+  EMPLOYEE = 'EMPLOYEE',
 }
