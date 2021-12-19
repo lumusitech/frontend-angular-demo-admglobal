@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UsersSnakWindowComponent } from '../../components/users-snak-window/users-snak-window.component';
-import { User } from '../../models/user';
+import { Role, User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-new-user',
@@ -17,9 +17,15 @@ export class NewUserComponent {
     lastname: [, [Validators.required, Validators.minLength(3)]],
     email: [, [Validators.required, Validators.email]],
     tel: [, [Validators.required]],
+    role: [, Validators.required],
     pass: [, [Validators.required, Validators.minLength(8)]],
     pass2: [, [Validators.required, Validators.minLength(8)]],
   });
+
+  selectorvalues: any[] = [
+    {value: Role.EMPLOYEE, viewValue: 'Empleado'},
+    {value: Role.ADMIN, viewValue: 'Administrador'},
+  ];
 
   newUser: any = {};
 
@@ -51,8 +57,8 @@ export class NewUserComponent {
       this.myForm.markAllAsTouched();
       return;
     }
-    const { name, lastname, email, tel, pass } = this.myForm.value;
-    this.newUser = { name, lastname, email, tel, pass };
+    const { name, lastname, email,tel, role,pass } = this.myForm.value;
+    this.newUser = { name, lastname, email, tel, role, pass };
     this.userService.save(this.newUser);
     this.router.navigate(['/main/users']);
 
@@ -60,12 +66,6 @@ export class NewUserComponent {
   }
 
   openSnackBar() {
-    // this.snackBar.openFromComponent(UsersSnakWindowComponent, {
-    //   duration: 5000,
-    //   horizontalPosition: 'end',
-    //   verticalPosition: 'top'
-    // });
-
     this.snackBar.open('¡Usuario creado con éxito!', 'Cerrar', {
       horizontalPosition: 'end',
       verticalPosition: 'top',
