@@ -5,12 +5,22 @@ mat-sidenav-container {
 mat-nav-list {
   padding: 5px;
 
+
   a {
     display: flex;
     justify-content: flex-start;
+    transition: all .3s;
 
     span {
       margin-left: 10px;
     }
+
+    &:hover {
+      transform: translateX(10px);
+    }
   }
+}
+
+.paid {
+  color: rgb(219, 22, 22);
 }

@@ -2,7 +2,7 @@
   <div>
     <button
       mat-fab
-      color="primary"
+      color="new-entity"
       aria-label="add person"
       routerLink="/main/users/new"
     >
@@ -102,6 +102,7 @@
             <button
             mat-mini-fab
             color="edit"
+            class="operation-button"
             routerLink="/main/users/{{ row.id }}"
           >
             <mat-icon>edit</mat-icon>
@@ -109,6 +110,7 @@
           <button
           mat-mini-fab
           color="delete"
+          class="operation-button"
           routerLink="/main/users"
           >
           <mat-icon>delete</mat-icon>

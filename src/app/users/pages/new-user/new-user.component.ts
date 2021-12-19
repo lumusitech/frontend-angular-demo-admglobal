@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { UsersSnakWindowComponent } from '../../components/users-snak-window/users-snak-window.component';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 @Component({
@@ -26,7 +28,8 @@ export class NewUserComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private snackBar: MatSnackBar
   ) { }
 
   getErrorMessage(field: string) {
@@ -52,6 +55,23 @@ export class NewUserComponent {
     this.newUser = { name, lastname, email, tel, pass };
     this.userService.save(this.newUser);
     this.router.navigate(['/main/users']);
+
+    this.openSnackBar();
+  }
+
+  openSnackBar() {
+    // this.snackBar.openFromComponent(UsersSnakWindowComponent, {
+    //   duration: 5000,
+    //   horizontalPosition: 'end',
+    //   verticalPosition: 'top'
+    // });
+
+    this.snackBar.open('¡Usuario creado con éxito!', 'Cerrar', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 5000,
+      panelClass: ['snackbar']
+    });
   }
 
 }

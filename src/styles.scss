@@ -9,3 +9,127 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.container {
+  padding: 20px;
+}
+
+////////////////////////-/////////////////////////////
+////////////////? Global Tables ////////////////////
+table {
+  width: 100%;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    padding: 10px;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.mat-header-cell:last-child {
+  text-align: center;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 5%;
+}
+
+td:last-child {
+  text-align: center;
+}
+
+.mat-row {
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgb(81, 81, 81);
+    cursor: pointer;
+    transform: translateX(5px);
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    background: rgb(51, 51, 51);
+  }
+}
+
+button.operation-button {
+  margin: 5px;
+}
+
+////////////////////////-/////////////////////////////
+////////////////? Global Forms ////////////////////
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-form-field,
+.save-button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+////////////////////////-/////////////////////////////
+////////////////? Global Buttons /////////////////////
+
+.mat-new-entity {
+  background-color: rgb(48, 109, 61);
+
+  &:hover {
+    background-color: rgb(28, 89, 41);
+  }
+}
+
+.mat-button-back {
+  background-color: rgb(145, 143, 30);
+
+  &:hover {
+    background-color: rgb(125, 123, 10);
+  }
+}
+
+.mat-delete {
+  background-color: rgb(190, 56, 70);
+
+  &:hover {
+    background-color: rgb(158, 51, 63);
+  }
+}
+
+.mat-edit {
+  background-color: rgb(63, 109, 249);
+
+  &:hover {
+    background-color: rgb(55, 94, 210);
+  }
+}
+
+////////////////////////-/////////////////////////////
+////////////////? Global Buttons /////////////////////
+
+.snackbar {
+  background-color: darkslategrey;
+  color: whitesmoke;
+  margin: 0;
+}

@@ -14,6 +14,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UserTaskComponent } from './pages/user-task/user-task.component';
 import { UserTasksListComponent } from './pages/user-tasks-list/user-tasks-list.component';
 import { UserService } from './services/user.service';
+import { UsersSnakWindowComponent } from './components/users-snak-window/users-snak-window.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { UserService } from './services/user.service';
     UserTaskComponent,
     UserTaskComponent,
     UserTasksListComponent,
+    UsersSnakWindowComponent,
   ],
   imports: [
     CommonModule,
