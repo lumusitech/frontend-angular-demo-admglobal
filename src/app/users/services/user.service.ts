@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable, of, tap } from 'rxjs';
 import { Role, User } from '../models/user';
 
+
 // Mock data
 const USERS: User[] = [
   {
@@ -12,7 +13,8 @@ const USERS: User[] = [
     role: Role.ADMIN,
     email: "cardiaz@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 2,
@@ -21,7 +23,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "lucperez@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 3,
@@ -30,7 +33,8 @@ const USERS: User[] = [
     role: Role.ADMIN,
     email: "marsanchez@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 4,
@@ -39,7 +43,8 @@ const USERS: User[] = [
     role: Role.ADMIN,
     email: "luisgomez@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 5,
@@ -48,7 +53,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "eliruiz@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 6,
@@ -57,7 +63,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "marianoponce@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 7,
@@ -66,7 +73,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "fabgutierrez@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 8,
@@ -75,7 +83,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "gladuran@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 9,
@@ -84,7 +93,8 @@ const USERS: User[] = [
     role: Role.ADMIN,
     email: "marifernandez@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 10,
@@ -93,7 +103,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "elisaucedo@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 11,
@@ -102,7 +113,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "jurosas@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 12,
@@ -111,7 +123,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "melucespedes@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 13,
@@ -120,7 +133,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "adbritos@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 14,
@@ -129,7 +143,8 @@ const USERS: User[] = [
     role: Role.ADMIN,
     email: "brapalacios@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   },
   {
     id: 15,
@@ -138,7 +153,8 @@ const USERS: User[] = [
     role: Role.EMPLOYEE,
     email: "marianacevedo@email.com",
     tel: "1122002200",
-    pass: "1234"
+    pass: "12345678",
+    active: true
   }
 ]
 
@@ -154,12 +170,18 @@ export class UserService {
   constructor() { }
 
   save(user: any) {
-    this.getAll().subscribe(users => {
-      const id = users.length + 1;
-      const newUser = { id, ...user }
-      this.users.push(newUser);
-    })
-    // this.http.post<User>(`${this.url_base}`, {...user});
+    if (user.id) {
+      // this.http.put<User>(`${this.url_base}`, {...user});
+      this.users[user.id - 1] = user;
+
+    } else {
+      this.getAll().subscribe(users => {
+        const id = users.length + 1;
+        const newUser = { id, ...user }
+        this.users.push(newUser);
+      })
+      // this.http.post<User>(`${this.url_base}`, {...user});
+    }
   }
 
   getById(id: number): Observable<User> {
@@ -177,6 +199,8 @@ export class UserService {
   }
 
   deleteById(id: number) {
-    this.users = this.users.filter(u => u.id !== id);
+    const user = this.users[id - 1];
+    user.active = false;
+    this.users[id - 1] = user;
   }
 }

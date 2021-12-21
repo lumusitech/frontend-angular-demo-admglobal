@@ -1,19 +1,56 @@
 <div class="container animate__animated animate__fadeIn">
-  <button
-    mat-fab
-    color="button-back"
-    aria-label="back to users"
-    routerLink="/main/users"
-  >
-    <mat-icon>arrow_back</mat-icon>
-  </button>
+  <!-- back button -->
+  <div>
+    <button
+      mat-fab
+      color="button-back"
+      aria-label="back to users"
+      routerLink="/main/users"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
 
-  <br><br>
-  <hr>
-  <br><br>
-
-  {{ user | json }}
+  <!-- User Card -->
+  <div class="center">
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title>{{ user.lastname }}, {{ user.name }}</mat-card-title>
+        <mat-card-subtitle>{{ user.role }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ user.active ? "Usuario Activo" : "Usuario Eliminado" }}</p>
+        <p><strong>Email: </strong>{{ user.email }}</p>
+        <p><strong>Teléfono: </strong>{{ user.tel }}</p>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz
+          breeds of dog from Japan. A small, agile dog that copes very well with
+          mountainous terrain, the Shiba Inu was originally bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-button
+          mat-mini-fab
+          color="edit"
+          aria-label="edit user"
+          routerLink="/main/users/edit/{{ user.id }}"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-button
+          mat-mini-fab
+          color="delete"
+          aria-label="delete user"
+          (click)="delete()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
 
-
-
+{{ user | json }}

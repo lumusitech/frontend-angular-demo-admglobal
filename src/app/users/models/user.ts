@@ -6,6 +6,7 @@ export interface User {
   tel: string;
   pass: string;
   role: Role;
+  active: boolean;
 }
 
 export enum Role {

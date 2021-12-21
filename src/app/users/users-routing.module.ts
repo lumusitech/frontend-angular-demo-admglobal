@@ -7,6 +7,7 @@ import { UserTasksListComponent } from './pages/user-tasks-list/user-tasks-list.
 import { NewUserTaskComponent } from './pages/new-user-task/new-user-task.component';
 import { UserTaskComponent } from './pages/user-task/user-task.component';
 import { UsersDashboardComponent } from './pages/users-dashboard/users-dashboard.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'tasks/new', component: NewUserTaskComponent },
       { path: ':id', component: UserComponent },
       { path: 'tasks/:id', component: UserTaskComponent },
+      { path: 'edit/:id', component: EditUserComponent },
       { path: '**', redirectTo: '' },
     ]
   }

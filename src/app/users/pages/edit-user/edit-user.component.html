@@ -4,18 +4,19 @@
     <button
       mat-fab
       color="button-back"
-      aria-label="back to users"
-      routerLink="/main/users"
+      aria-label="back to userDatas"
+      routerLink="/main/userDatas/{{ idFromRoute }}"
     >
       <mat-icon>arrow_back</mat-icon>
     </button>
   </div>
 
-  <form class="form-container" [formGroup]="myForm" (ngSubmit)="save()">
+  <form class="form-container" [formGroup]="myForm" (ngSubmit)="update()">
     <!-- input name -->
     <mat-form-field appearance="outline">
       <mat-label>Nombre/s del usuario</mat-label>
       <input
+        [value]="userData.name"
         matInput
         placeholder="Apellidos"
         autocomplete="off"
@@ -58,11 +59,11 @@
     <mat-form-field appearance="outline">
       <mat-label>Ingrese su teléfono</mat-label>
       <input
-      type="number"
-      matInput
-      placeholder="Teléfono"
-      autocomplete="off"
-      formControlName="tel"
+        type="number"
+        matInput
+        placeholder="Teléfono"
+        autocomplete="off"
+        formControlName="tel"
       />
       <mat-icon matSuffix>email</mat-icon>
       <mat-hint>Ejemplo: 1120459223</mat-hint>
@@ -73,7 +74,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Seleccione el Rol</mat-label>
       <mat-select name="role" formControlName="role">
-        <mat-option *ngFor="let value of selectorvalues" [value]="value.value">
+        <mat-option *ngFor="let value of selectorValues" [value]="value.value">
           {{ value.viewValue }}
         </mat-option>
       </mat-select>
@@ -124,9 +125,11 @@
 
     <!-- save button -->
     <button class="save-button" mat-raised-button color="primary">
-      Crear nuevo usuario
+      Guardar cambios en usuario
     </button>
   </form>
 </div>
 
 {{ myForm.value | json }}
+
+{{ userData | json }}

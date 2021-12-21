@@ -14,6 +14,11 @@ body {
   padding: 20px;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 ////////////////////////-/////////////////////////////
 ////////////////? Global Tables ////////////////////
 table {
@@ -80,7 +85,7 @@ button.operation-button {
   align-items: center;
 }
 
-mat-form-field,
+.mat-form-field,
 .save-button {
   width: 100%;
   margin-top: 20px;
@@ -132,4 +137,36 @@ button {
   background-color: darkslategrey;
   color: whitesmoke;
   margin: 0;
+}
+.snackbar-delete {
+  background-color: rgb(158, 51, 63);
+  color: whitesmoke;
+  margin: 0;
+}
+
+.mat-dialog-cancel {
+  background-color: rgb(158, 51, 63);
+  color: whitesmoke;
+  margin: 0;
+
+  &:hover {
+    background-color: rgb(138, 31, 43);
+  }
+}
+
+.mat-dialog-confirm {
+  background-color: rgb(49,77,79);
+  color: whitesmoke;
+  margin: 0;
+
+  &:hover {
+    background-color: rgb(29,57,59);
+  }
+}
+
+////////////////////////-/////////////////////////////
+////////////////? Global Mat Card /////////////////////
+.mat-card-actions {
+  display: flex !important;
+  justify-content: flex-end;
 }

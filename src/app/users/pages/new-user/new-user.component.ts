@@ -27,9 +27,9 @@ export class NewUserComponent {
     {value: Role.ADMIN, viewValue: 'Administrador'},
   ];
 
-  newUser: any = {};
+  newUser: any = null;
 
-  hide: boolean = true;
+  passHide: boolean = true;
 
   constructor(
     private fb: FormBuilder,
