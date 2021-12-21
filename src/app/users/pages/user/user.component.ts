@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
-import { Role } from '../../models/user';
 import { UserService } from '../../services/user.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmComponent } from 'src/app/shared/components/confirm/confirm.component';
 
 @Component({
   selector: 'app-user',
@@ -22,7 +22,9 @@ export class UserComponent implements OnInit {
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog,
+
 
   ) {
     this.user = null;
@@ -37,9 +39,15 @@ export class UserComponent implements OnInit {
   }
 
   delete() {
-    this.userService.deleteById(this.idFromRoute);
-    this.router.navigate(['/main/users']);
-    this.openSnackBar();
+    this.dialog.open(ConfirmComponent, {
+      data: '¿Seguro que desea proceder?'
+    }).afterClosed().subscribe(confirm => {
+      if (confirm) {
+        this.userService.deleteById(this.idFromRoute);
+        this.router.navigate(['/main/users']);
+        this.openSnackBar();
+      }
+    });
   }
 
   openSnackBar() {
@@ -51,7 +59,6 @@ export class UserComponent implements OnInit {
     });
 
     this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
-      console.log("Presionaste action snackbar, Agregar el método para deshacer el borrado");
       this.userService.getById(this.idFromRoute).subscribe(user => {
         user.active = true;
         this.userService.update(this.idFromRoute, user);
